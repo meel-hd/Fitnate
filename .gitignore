@@ -1,0 +1,104 @@
+# General Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+*.pycachefile
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+*.pycachefile
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# GUI specific files
+*.pyw
+*.exe
+*.dll
+*.so
+*.dylib
+*.bak
+*.spec
+
+# Compiled GUI files
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+
+# Compiled UI files for PyQt or PySide
+*.ui
+*.pyc
+*.pyo
+
+# Build and distribution files
+build/
+dist/
+*.egg-info/
+*.egg/
+*.egg-info/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+*.pycachefile
+*.spec
+*.pyinstaller/
+*.build/
+*.out/
+*.log/
+*.pyre/
+*.egg-info/
+*.dist-info/
+*.log/
+*.egg
+*.whl
+*.dist/
+*.build/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+*.pycachefile
+*.spec
+*.pyinstaller/
+*.build/
+*.out/
+*.log/
+*.pyre/
+*.egg-info/
+*.dist-info/
+
+# IDE specific files
+*.pydevproject
+*.idea/
+*.vscode/
+*.pyc
+*.pyo
+
+# Miscellaneous
+*.bak
+*.swp
+*.tmp
+*~
+*.bak
+*.swp
+*.tmp
+*~
