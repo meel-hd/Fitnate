@@ -24,7 +24,7 @@ __pycache__/
 
 # GUI specific files
 *.pyw
-*.exe
+# *.exe # commented because it's used to track releases
 *.dll
 *.so
 *.dylib
