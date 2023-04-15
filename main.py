@@ -5,7 +5,7 @@ from widgets.check_network import check_network
 from widgets.sidebar import Sidebar
 from server.send import start_requests, stop_requests
 
-from config import color_theme, mode, target
+from config import color_theme, mode,raid_title, raid_description
 
 """Main file of the app"""
 
@@ -25,6 +25,12 @@ class App(customtkinter.CTk):
         self.title("Fitnate")
         self.geometry(f"{1000}x{580}")
         self.minsize(870, 500)
+        
+        
+        # Excluded because it produces an error when running the executable
+        # Current fix: change the default icon of customtkinter in its source code (pip show customtkinter)
+        # self.iconbitmap("assets/icon.ico")
+        
 
         # configure grid layout (4x4)
         self.grid_columnconfigure(1, weight=1)
@@ -65,10 +71,10 @@ class App(customtkinter.CTk):
         # SECTION: Stats of the raid
         self.raid_frame = customtkinter.CTkFrame(self)
         self.raid_frame.grid(row=0, column=3, padx=(20, 20), pady=(20, 0), sticky="nsew")
-        self.label_radio_group = customtkinter.CTkLabel(master=self.raid_frame, text="Localhost Raid", text_color='orange', font=customtkinter.CTkFont(size=20, weight="bold"))
+        self.label_radio_group = customtkinter.CTkLabel(master=self.raid_frame, text=raid_title, text_color='orange', font=customtkinter.CTkFont(size=20, weight="bold"))
         self.label_radio_group.grid(row=0, column=2, columnspan=1, padx=10, pady=10, sticky="w")
         
-        self.description_label = customtkinter.CTkLabel(master=self.raid_frame, text=f"Targeting {target}",font=customtkinter.CTkFont(size=14))
+        self.description_label = customtkinter.CTkLabel(master=self.raid_frame, text=raid_description,font=customtkinter.CTkFont(size=14))
         self.description_label.grid(row=1, column=2, columnspan=1, padx=10, pady=10, sticky="w")
 
         
