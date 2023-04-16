@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Set body height to 100vh */
+        body {
+            height: 100vh;
+        }
+
+        /* Set div height to 100vh with max height and overflow-y */
+        .scrollable-div {
+            /* 93vh: Space to bottom controls */
+            max-height: 93vh;
+            min-height: 93vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body class="w-full flex justify-between bg-slate-100 ">
+    <div>
+
+        <div id="messages" class="scrollable-div w-[50vw] pb-5 px-10 py-3">
+            <!-- Messages here -->
+            <h1 class="font-semibold mb-4 text-xl">Messages</h1>
+        </div>
+        <!-- Controls -->
+        <div class="px-3 py-1 flex justify-evenly">
+            <button onclick="clearMessages()"
+                class="bg-slate-400/10 hover:bg-slate-500/20 text-green-500 text-xs py-1 px-4 rounded">
+                Clear Messages
+            </button>
+
+            <button class="bg-slate-400/10 hover:bg-slate-500/20 text-xs py-1 px-4 rounded" onclick="switchTheme()">
+                Change Theme
+            </button>
+
+            <button class="bg-slate-400/10 hover:bg-slate-500/20 text-xs py-1 px-4 rounded"
+                onclick="toggleFullscreen()">
+                Toggle Fullscreen
+            </button>
+
+            <button class="bg-slate-400/10 hover:bg-slate-500/20 text-xs py-1 px-4 rounded" onclick="openModal()">
+                Advanced
+            </button>
+        </div>
+    </div>
+    <!-- Admin Inputs -->
+    <div class="w-[50vw] min-h-screen ">
+
+        <!-- Anonymous -->
+        <div class="w-full border border-white/5  h-[20vh]  p-3">
+            <h1 class="font-semibold text-lg text-yellow-500 ">
+                Anonymous
+            </h1>
+            <textarea id="anon-message" class="w-full bg-white/20 p-1 h-[8vh] border border-white/5  shadow-sm rounded"
+                placeholder="Type your message here"></textarea>
+
+            <div class="flex justify-end">
+
+                <button onclick="sendAnonMessage()"
+                    class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                    Send
+                </button>
+            </div>
+        </div>
+
+        <!-- Admin Messages -->
+        <div class="w-full border border-white/5  h-[40vh]  px-3 py-1">
+            <h1 class="font-semibold text-lg text-red-500 ">
+                Admin Messages
+            </h1>
+            <textarea id="admin-message" class="w-full bg-white/20 p-1 h-[26vh] border border-white/5 shadow-sm rounded"
+                placeholder="Type your message here"></textarea>
+
+            <div class="flex justify-end">
+
+                <button onclick="sendAdminMessage()"
+                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                    Send
+                </button>
+            </div>
+        </div>
+        <!-- Announcements -->
+        <div class="w-full border border-white/5  h-[40vh]  px-3 py-1">
+            <h1 class="font-semibold text-lg text-violet-500 ">
+                Announcements
+            </h1>
+            <textarea id="announcement" class="w-full bg-white/20 p-1 h-[26vh] border border-white/5  shadow-sm rounded"
+                placeholder="Type your message here"></textarea>
+
+            <div class="flex justify-end">
+                <button onclick="sendAnnouncement()"
+                    class="bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded">
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Advanced settings modal -->
+    <div id="modal"
+        class="hidden absolute left-0 bg-stone-950 text-white top-0 bottom-0 min-h-screen w-[50vw] px-4 py-2 overflow-hidden">
+        <!-- Modal title -->
+        <div class="sm:flex sm:items-start">
+            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <h3 class="text-lg leading-6 font-medium text-violet-400">Automatic Anouncements</h3>
+                <p class="text-xs mt-4 ">
+                    Send automatic announcements after a certain time.
+                </p>
+                <div class="mt-2">
+                    <!-- Add your modal content here -->
+                    <textarea id="auto-announcement"
+                        class="w-[45vw] bg-white/20 p-1 h-[26vh] border border-white/5 shadow-sm rounded"
+                        placeholder="Type the announcement..."></textarea>
+                    <div class="flex gap-2">
+                        <p>Send after:</p>
+                        <input type="number" id="auto-announcement-time" value="5" min="3" onchange="changeTime()"
+                            class="w-20 bg-white/20 p-1 border border-white/5 shadow-sm rounded"
+                            placeholder="Time in seconds">
+                        <p> Seconds</p>
+
+                    </div>
+                    <div class="flex justify-between">
+                        <button onclick="cancelSendAfterTime()" class="text-violet-700  ">
+                            Cancel
+                        </button>
+                        <button onclick="sendAfterTime()"
+                            class="bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded">
+                            Send
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Modal buttons -->
+                <div class="mt-20 flex row justify-end ">
+                    <button onclick="closeModal()"
+                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-500 text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm">
+                        Close
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+        <script src="scripts/index.js"></script>
+        <script src="scripts/theme.js"></script>
+        <script src="./scripts/modal.js"></script>
+</body>
+
+</html>
