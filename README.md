@@ -1,9 +1,13 @@
 # Fitnate
+  ![icon](assets/palm-oil.png)
+  
 The *croud* driven **D**istributed **D**enial of **S**ervice attack.
 
 Developed because of a  concern from a discussion about the current state of power distribution between the classes with the rise of technologies like supercomputers.
 
 This is my humble attempt to balance the scales.
+
+![screenshot](assets/screenshot.png)
 ### Packaging
 #### Windows
 The **./build.py** is a python script for packging the the app, tested only on *windows*.
